@@ -1,4 +1,4 @@
-# Recipe Radar
+# JKD Nutri* - Recipe Radar
 
 A simple and user-friendly web application that allows users to search for recipes using the **Spoonacular Food API**. The app displays results as cards with images, cooking time, servings, and a link to the original recipe source.  
 The focus of this MVP is fast search, clean UI, and clear loading/error handling.
@@ -7,8 +7,8 @@ The focus of this MVP is fast search, clean UI, and clear loading/error handling
 
 ## 👥 Team Members
 - Deniss Vigovskis 
-- Jurita – API/Backend
-- [Name] – Testing & Documentation
+- Jurita Brunava – API/Backend
+- Kristine Fedulova – Testing & Documentation
 
 ---
 
@@ -58,9 +58,4 @@ It provides rich recipe data (images, ingredients, instructions, nutrition) with
 
 ---
 
-## 🚀 Getting Started (Local Setup)
 
-### 1. Clone the repository
-```bash
-git clone <your-repo-url>
-cd <project-folder>
