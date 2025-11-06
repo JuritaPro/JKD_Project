@@ -14,9 +14,10 @@ An app that prepares a meal plan for you based on your private blood test result
 [What problem are you solving? Who is this for?]
 
 ## API Selection
-**API Name:** [e.g., TMDB API]  
-**API Documentation:** [URL]  
-**Why this API?** [1-2 sentences]
+**API Name:** Spoonacular
+**API Documentation:** https://spoonacular.com/ 
+**Why this API?** Search through thousands of recipes using advanced filtering and ranking. 
+This method combines searching by query, by ingredients, and by nutrients into one endpoint.
 
 ### 2. GitHub Repository
 
