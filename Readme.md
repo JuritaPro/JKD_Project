@@ -7,23 +7,24 @@ The focus of this MVP is fast search, clean UI, and clear loading/error handling
 
 ## 👥 Team Members
 - Deniss Vigovskis 
-- Jurita Brunava – API/Backend
-- Kristine Fedulova – Testing & Documentation
+- Jurita Brunava
+- Kristine Fedulova
 
 ---
 
 ## 🧩 Problem Statement
-When users wonder *“What should I cook today?”*, the information online is scattered and time-consuming to filter.  
-There is a need for a simple and reliable search tool where users can quickly find recipe ideas with essential details and filters.
+People often learn about nutrient deficiencies from blood test results, but they typically lack guidance on how to adjust their diet effectively. 
+By linking an individual’s nutrient shortages with the Spoonacular API, we can generate personalised recipe recommendations that help restore nutrient balance. 
+This makes dietary improvement simple, practical, and guided by real health data. 
 
 ---
 
 ## 🎯 Project Description
-**Recipe Radar** makes recipe discovery easy by combining fast keyword search with clean presentation of results. Users can browse recipes, view essential information at a glance, and open the full recipe source for instructions.  
-The MVP focuses on search and a recipe details view to deliver a smooth “from idea to plate” experience.
+A simple and user-friendly web application that allows users to prepare a meal plan for themselves based on their private blood test results, when missing nutrients (minerals, vitamins, etc.)
+The app searches for recipes using the Spoonacular Food API. Then displays results as a collection of cards with images, cooking time, servings, and a link to the original recipe source.
+The focus of this MVP is fast search, clean UI, and clear loading/error handling.
 
 ---
-
 ## 🔌 API
 **API Name:** Spoonacular Food API  
 **Documentation:** https://spoonacular.com/food-api/docs  
