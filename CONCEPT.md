@@ -1,9 +1,9 @@
 # JKD Nutri*
 
 ## Team Members
-- Member 1 - Jurita
-- Member 2 - Kristine
-- Member 3 - Deniss
+- Member 1 - Jurita Brunava
+- Member 2 - Kristin Fedulova
+- Member 3 - Deniss Vigovskis
 
 ## Project Description
 An app that prepares a meal plan for you based on your private blood test results.   
