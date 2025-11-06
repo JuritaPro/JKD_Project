@@ -1,9 +1,10 @@
 # JKD Nutri* - Recipe Radar
 
 ##  👥 Team Members
-Jurita Brunava
-Kristine Fedulova
-Deniss Vigovskis
+- Jurita Brunava
+- Kristine Fedulova
+- Deniss Vigovskis 
+
 
 ## 🎯 Project Description
 A simple and user-friendly web application that allows users to prepare a meal plan for themselves based on their private blood test results, when missing nutrients (minerals, vitamins, etc.)
