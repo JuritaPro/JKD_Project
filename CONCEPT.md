@@ -1,11 +1,13 @@
 # [Your Project Name]
 
 ## Team Members
-- Member 1 - [Name]
-- Member 2 - [Name]
-- Member 3 - [Name]
+- Member 1 - Jurita
+- Member 2 - Kristine
+- Member 3 - Deniss
 
 ## Project Description
+An app that prepares a meal plan for you based on your private blood test results.   
+
 [2-3 sentences describing what your app does]
 
 ## Problem Statement
