@@ -1,17 +1,19 @@
-# JKD Nutri*
+# JKD Nutri* - Recipe Radar
 
-## Team Members
-- Member 1 - Jurita Brunava
-- Member 2 - Kristin Fedulova
-- Member 3 - Deniss Vigovskis
+##  👥 Team Members
+Jurita Brunava
+Kristine Fedulova
+Deniss Vigovskis
 
-## Project Description
-An app that prepares a meal plan for you based on your private blood test results.   
+## 🎯 Project Description
+A simple and user-friendly web application that allows users to prepare a meal plan for themselves based on their private blood test results, when missing nutrients (minerals, vitamins, etc.)
+The app searches for recipes using the Spoonacular Food API. Then displays results as a collection of cards with images, cooking time, servings, and a link to the original recipe source.
+The focus of this MVP is fast search, clean UI, and clear loading/error handling.
 
-## Problem Statement
+## 🧩 Problem Statement
 People often learn about nutrient deficiencies from blood test results, but they typically lack guidance on how to adjust their diet effectively. By linking an individual’s nutrient shortages with the Spoonacular API, we can generate personalised recipe recommendations that help restore nutrient balance. This makes dietary improvement simple, practical, and guided by real health data.
 
-## API Selection
+## 🔌API Selection
 **API Name:** Spoonacular
 **API Documentation:** https://spoonacular.com/ 
 **Why this API?** Search through thousands of recipes using advanced filtering and ranking. 
