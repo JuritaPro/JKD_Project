@@ -6,8 +6,8 @@ The focus of this MVP is fast search, clean UI, and clear loading/error handling
 ---
 
 ## 👥 Team Members
-- Deniss Vigovskis – UI/UX & Integration
-- [Name] – API/Backend
+- Deniss Vigovskis 
+- Jurita – API/Backend
 - [Name] – Testing & Documentation
 
 ---
