@@ -25,7 +25,7 @@ app.get("/api/search", async (req, res) => {
     return res.status(400).json({ error: "Missing query parameter" });
   }
 
-  const apiUrl = `https://api.spoonacular.com/recipes/complexSearch?query=${encodeURIComponent(
+  const apiUrl = `https://api.spoonacular.com/recipes/findByIngredients?query=${encodeURIComponent(
     query
   )}&number=${number}&addRecipeInformation=true&apiKey=${SPOON_KEY}`;
 
