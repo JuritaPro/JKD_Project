@@ -25,11 +25,13 @@ app.get("/api/search", async (req, res) => {
     return res.status(400).json({ error: "Missing query parameter" });
   }
 
-  const apiUrl = `https://api.spoonacular.com/recipes/findByIngredients?query=${encodeURIComponent(
+    const apiUrl = `https://api.spoonacular.com/recipes/complexSearch?query=${encodeURIComponent(
     query
   )}&number=${number}&addRecipeInformation=true&apiKey=${SPOON_KEY}`;
 
   try {
+      // Debug: log the upstream URL so we can inspect what is being requested
+      console.log("Proxying to:", apiUrl);
     // Node 24 jau atbalsta globālu fetch
     const response = await fetch(apiUrl);
 

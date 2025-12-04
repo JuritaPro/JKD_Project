@@ -122,3 +122,47 @@ searchInput.addEventListener("keydown", (event) => {
     searchRecipes();
   }
 });
+
+// ===== Falling forks & knives decorative animation =====
+function startFallingIcons() {
+  const container = document.getElementById("headerFalling");
+  if (!container) return;
+
+  function spawn() {
+    const el = document.createElement("div");
+    el.className = "fall-icon";
+    // choose emoji: fork+knife or fork (unicode may vary by platform)
+    const choices = ["🍴", "🔪", "🍽️"]; // decorative
+    el.textContent = choices[Math.floor(Math.random() * choices.length)];
+
+    // random horizontal position
+    const left = Math.random() * 100; // percent
+    el.style.left = `${left}%`;
+
+  // random size multiplier (smaller for header)
+  const size = 0.6 + Math.random() * 0.9;
+  el.style.fontSize = `${Math.round(12 * size + Math.random() * 8)}px`;
+
+  // random duration (shorter for header area)
+  const duration = 4 + Math.random() * 5; // seconds
+  const sway = 1.4 + Math.random() * 2.2;
+  el.style.animationDuration = `${duration}s, ${sway}s`;
+
+  // random opacity variation
+  el.style.opacity = 0.75 + Math.random() * 0.2;
+
+    // append and remove after animation
+    el.addEventListener("animationend", () => el.remove());
+
+    container.appendChild(el);
+  }
+
+  // spawn at regular-ish intervals (header area shouldn't be too dense)
+  setInterval(spawn, 700);
+}
+
+// start animations when DOM is ready
+document.addEventListener("DOMContentLoaded", () => {
+  // small delay so assets/styles settle
+  setTimeout(startFallingIcons, 400);
+});
