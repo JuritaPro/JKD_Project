@@ -1,0 +1,25 @@
+{
+  "name": "jkd_project",
+  "version": "1.0.0",
+  "description": "A simple and user-friendly web application that allows users to search for recipes using the Spoonacular Food API. The app displays results as cards with images, cooking time, servings, and a link to the original recipe source. The focus of this MVP is fast search, clean UI, and clear loading/error handling.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JuritaPro/JKD_Project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JuritaPro/JKD_Project/issues"
+  },
+  "homepage": "https://github.com/JuritaPro/JKD_Project#readme",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0"
+  }
+}
+

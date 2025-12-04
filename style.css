@@ -1,0 +1,462 @@
+/* ===== Design system: variables ===== */
+:root {
+  --color-bg: #fff9c4; /* soft warm yellow */
+  --color-surface: #ffffff;
+  --color-surface-soft: #f9fafb;
+
+  --color-primary: #2563eb;
+  --color-primary-dark: #1d4ed8;
+  --color-primary-soft: #dbeafe;
+
+  --color-text: #111827;
+  --color-text-muted: #4b5563;
+  --color-border: #e5e7eb;
+
+  --color-error-bg: #fee2e2;
+  --color-error-text: #b91c1c;
+  --color-info-bg: #e0f2fe;
+  --color-info-text: #075985;
+
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+
+  --shadow-soft: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-card: 0 10px 30px rgba(15, 23, 42, 0.12);
+
+  --transition-fast: 0.15s ease-out;
+  --transition-normal: 0.25s ease;
+}
+
+/* ===== Base reset ===== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  margin: 0;
+  padding: 0;
+  /* switched to a warm yellow background */
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* ===== Layout ===== */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-md) var(--space-xl);
+  position: relative; /* keep above falling icons */
+  z-index: 1;
+}
+
+/* ===== Falling forks & knives background ===== */
+/* header-only falling icons */
+.header-falling {
+  position: absolute;
+  inset: 0; /* cover header area */
+  pointer-events: none; /* let clicks pass through */
+  overflow: visible;
+  z-index: 0; /* behind header content */
+}
+
+.fall-icon {
+  position: absolute;
+  top: -40px; /* start just above header */
+  will-change: transform, opacity;
+  display: inline-block;
+  font-size: clamp(14px, 2.6vw, 28px);
+  line-height: 1;
+  user-select: none;
+  opacity: 0.9;
+  transform-origin: center;
+  animation-name: fall, sway;
+  animation-timing-function: linear, ease-in-out;
+  animation-iteration-count: 1, infinite;
+}
+
+@keyframes fall {
+  from {
+    transform: translateY(-10% ) rotate(0deg);
+    opacity: 0.95;
+  }
+  to {
+    transform: translateY(220% ) rotate(360deg);
+    opacity: 0.85;
+  }
+}
+
+@keyframes sway {
+  0% { transform: translateX(0px); }
+  50% { transform: translateX(20px); }
+  100% { transform: translateX(0px); }
+}
+
+/* small accessibility: hide from assistive tech */
+.falling-container[aria-hidden="true"] { visibility: visible; }
+
+/* ===== Header ===== */
+header {
+  text-align: center;
+  margin-bottom: var(--space-lg);
+  position: relative; /* create containing block for header-falling */
+  z-index: 1; /* ensure header content sits above decorative icons */
+}
+
+h1 {
+  margin-bottom: var(--space-xs);
+  font-size: clamp(1.9rem, 3vw, 2.2rem);
+  letter-spacing: 0.02em;
+}
+
+header p {
+  margin: 0;
+  color: var(--color-text-muted);
+  max-width: 540px;
+  margin-inline: auto;
+  font-size: 0.98rem;
+}
+
+/* ensure header text stays above falling icons */
+header > h1, header > p {
+  position: relative;
+  z-index: 2;
+}
+
+/* ===== Search section ===== */
+.search-section {
+  display: flex;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-md);
+  padding: var(--space-sm);
+  background: var(--color-surface-soft);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-soft);
+}
+
+/* Inputs */
+.search-section input {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  font-size: 1rem;
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast),
+    background-color var(--transition-fast),
+    transform var(--transition-fast);
+  background-color: #ffffff;
+}
+
+.search-section input::placeholder {
+  color: #9ca3af;
+}
+
+.search-section input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+  background-color: #f9fafb;
+  transform: translateY(-1px);
+}
+
+/* Buttons */
+.search-section button {
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  color: white;
+  font-size: 0.95rem;
+  cursor: pointer;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.35);
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast),
+    filter var(--transition-fast),
+    opacity var(--transition-fast);
+}
+
+.search-section button:hover {
+  background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
+  transform: translateY(-1px) scale(1.01);
+  filter: brightness(1.03);
+  box-shadow: 0 14px 30px rgba(37, 99, 235, 0.45);
+}
+
+.search-section button:active {
+  transform: translateY(0) scale(0.97);
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.4);
+}
+
+.search-section button:disabled {
+  opacity: 0.6;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+/* ===== Loading state (custom animation, not spinner) ===== */
+/* HTML ideja:
+<div class="loading hidden" id="loading">
+  <div class="loading-bar">
+    <div class="loading-bar-inner"></div>
+  </div>
+  <span>Scanning recipes for you…</span>
+</div>
+*/
+
+.loading {
+  margin: var(--space-sm) 0;
+  color: #374151;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-start;
+  font-size: 0.95rem;
+}
+
+.loading-bar {
+  width: 100%;
+  max-width: 260px;
+  height: 6px;
+  border-radius: 999px;
+  background: #e5e7eb;
+  overflow: hidden;
+  position: relative;
+}
+
+.loading-bar-inner {
+  width: 60%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--color-primary), #22c55e, var(--color-primary));
+  animation: loading-slide 1.1s infinite ease-in-out;
+}
+
+@keyframes loading-slide {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+/* ===== Error & info messages ===== */
+.error {
+  margin: var(--space-sm) 0;
+  padding: 8px 12px;
+  background: var(--color-error-bg);
+  color: var(--color-error-text);
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  border: 1px solid rgba(248, 113, 113, 0.7);
+}
+
+.info {
+  margin: var(--space-sm) 0;
+  padding: 8px 12px;
+  background: var(--color-info-bg);
+  color: var(--color-info-text);
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  border: 1px solid rgba(59, 130, 246, 0.5);
+}
+
+/* ===== Utility ===== */
+.hidden {
+  display: none;
+}
+
+/* ===== Results grid ===== */
+.results {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+/* ===== Recipe card ===== */
+.recipe-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: 12px;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(15, 23, 42, 0.04);
+  transition:
+    transform var(--transition-normal),
+    box-shadow var(--transition-normal),
+    border-color var(--transition-normal),
+    background-color var(--transition-normal);
+}
+
+.recipe-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(37, 99, 235, 0.08), transparent 50%);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+  pointer-events: none;
+}
+
+.recipe-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.22);
+  border-color: rgba(37, 99, 235, 0.25);
+  background-color: #f9fafb;
+}
+
+.recipe-card:hover::before {
+  opacity: 1;
+}
+
+/* Optional – virsraksts/virsrinda kartītē */
+.recipe-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-xs);
+}
+
+/* ===== Recipe image ===== */
+.recipe-image {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  display: block;
+  object-fit: cover;
+  max-height: 180px;
+}
+
+/* ===== Text in card ===== */
+.recipe-title {
+  font-size: 1rem;
+  margin: 4px 0;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.recipe-meta {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin: 4px 0 8px;
+}
+
+/* Pills for diet type / time / health */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  background: var(--color-surface-soft);
+  color: var(--color-text-muted);
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  margin-right: 4px;
+  margin-bottom: 4px;
+}
+
+/* ===== Link to full recipe ===== */
+.recipe-link {
+  margin-top: auto;
+  font-size: 0.9rem;
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.recipe-link:hover {
+  text-decoration: underline;
+  color: var(--color-primary-dark);
+  transform: translateX(1px);
+}
+
+/* ===== Responsive tweaks ===== */
+@media (max-width: 768px) {
+  .container {
+    padding: var(--space-md);
+  }
+
+  .search-section {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-section button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Mobile-specific adjustments for small screens (phones) */
+@media (max-width: 480px) {
+  /* tighter layout */
+  .container {
+    padding: 16px;
+  }
+
+  /* reduce header vertical size and text for small screens */
+  header {
+    padding-block: var(--space-md);
+    margin-bottom: var(--space-md);
+  }
+
+  h1 {
+    font-size: 1.4rem; /* smaller headline on phones */
+  }
+
+  header p {
+    font-size: 0.95rem;
+    max-width: 320px;
+  }
+
+  /* Make search input and button comfortably touchable */
+  .search-section input,
+  .search-section button {
+    font-size: 1rem;
+    padding: 12px 14px;
+  }
+
+  /* Reduce results spacing on small screens */
+  .results {
+    gap: 12px;
+  }
+
+  /* Reduce image height to avoid overly tall cards */
+  .recipe-image {
+    max-height: 140px;
+  }
+
+  /* Disable falling icons inside header on phones to avoid visual noise */
+  .header-falling {
+    display: none;
+  }
+}
